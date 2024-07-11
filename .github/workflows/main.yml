@@ -21,7 +21,7 @@ jobs:
                echo "sha=$SHA" >> $GITHUB_OUTPUT
         
           - name: Build docker image
-            run: docker build -t denisluiz/nlw_journey_devops:${{ steps.generate_sha.outputs}} .
+            run: docker build -t denisluiz/nlw_journey_devops:${{ steps.generate_sha.outputs.sha}} .
 
 # logar no container registry
 # enviar a imagem após
