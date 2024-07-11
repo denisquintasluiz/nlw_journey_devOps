@@ -39,3 +39,9 @@ jobs:
                 username: ${{ secrets.DOCKERHUB_USERNAME}}
                 password: ${{ secrets.DOCKERHUB_TOKEN}}
 # enviar a imagem após
+
+          - name: Push image
+            run: |
+             docker push denisluiz/nlw_journey_devops:${{ steps.generate_sha.outputs.sha}}
+             docker tag denisluiz/nlw_journey_devops:${{ steps.generate_sha.outputs.sha}} denisluiz
+             docker push denisluiz/nlw_journey_devops:latest
