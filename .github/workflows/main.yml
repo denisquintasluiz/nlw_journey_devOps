@@ -30,14 +30,6 @@ jobs:
         
           - name: Build docker image
             run: docker build -t denisluiz/nlw_journey_devops:${{ steps.generate_sha.outputs.sha}} .
-
-# logar no container registry
-
-          - name: Login into container registry
-            uses: docker/login-action@v3
-            with:
-                username: ${{ secrets.DOCKERHUB_USERNAME}}
-                password: ${{ secrets.DOCKERHUB_TOKEN}}
 # enviar a imagem após
 
           - name: Push image
